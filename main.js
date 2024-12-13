@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const FIREBASE_URL =
-    "https://formulario-d0e01-default-rtdb.firebaseio.com/registros.json"; // Altere <seu-projeto> pela sua URL Firebase
+    "https://formulario-d0e01-default-rtdb.firebaseio.com/registros.json";
   const tabelaRegistros = document
     .getElementById("tabela-registros")
     .querySelector("tbody");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(FIREBASE_URL, { method: "GET" });
       if (response.ok) {
         const data = await response.json();
-        tabelaRegistros.innerHTML = ""; // Limpa a tabela antes de adicionar novos registros
+        tabelaRegistros.innerHTML = "";
         if (data) {
           Object.keys(data).forEach((id) => {
             const registro = data[id];
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         if (response.ok) {
           alert("Registro excluído com sucesso!");
-          carregarRegistros(); // Recarrega a tabela após exclusão
+          carregarRegistros();
         } else {
           alert("Erro ao excluir registro.");
         }
